@@ -41,7 +41,7 @@ class GraphPage extends StatelessWidget {
   // Helper method to generate the chart data
   LineChartData _generateChartData(List<Order> orders) {
     // Group orders by year and month
-    final groupedOrders = _groupOrdersByMonth(orders);
+    final groupedOrders = _groupOrders(orders);
 
     // Convert the grouped data into chart spots
     final spots = _generateSpots(groupedOrders);
@@ -68,7 +68,7 @@ class GraphPage extends StatelessWidget {
   }
 
   // Group orders by month and year
-  Map<DateTime, List<Order>> _groupOrdersByMonth(List<Order> orders) {
+  Map<DateTime, List<Order>> _groupOrders(List<Order> orders) {
     return Map.fromEntries(
       groupBy(
         orders,
