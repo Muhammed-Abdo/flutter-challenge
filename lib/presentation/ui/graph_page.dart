@@ -19,9 +19,6 @@ class GraphPage extends StatelessWidget {
       body: BlocBuilder<OrdersCubit, OrdersState>(
         builder: (context, state) {
           // Handling various states of the orders
-          if (state.status == OrdersStatus.loading) {
-            return const Center(child: CircularProgressIndicator());
-          }
           if (state.status == OrdersStatus.failure) {
             return Center(child: Text('${AppConstants.error}: ${state.error}'));
           }
@@ -72,8 +69,7 @@ class GraphPage extends StatelessWidget {
     return Map.fromEntries(
       groupBy(
         orders,
-        (Order order) =>
-            DateTime(order.registered.year, order.registered.month),
+        (order) => DateTime(order.registered.year, order.registered.month),
       ).entries.toList()
         ..sort((a, b) => a.key.month.compareTo(b.key.month)),
     );
