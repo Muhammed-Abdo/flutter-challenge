@@ -23,7 +23,7 @@ class AppConstants {
 
   static String ordersCountAxisTitle = "Orders Count";
 
-  static String timeAxisTitle = "Time";
+  static String timeAxisTitle = "Time(Months)";
 
   static String returnedOrdersDescription = "Returned Orders";
 

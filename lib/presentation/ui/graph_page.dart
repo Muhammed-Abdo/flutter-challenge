@@ -105,10 +105,13 @@ class GraphPage extends StatelessWidget {
         sideTitles: SideTitles(
           showTitles: true,
           reservedSize: 40,
-          getTitlesWidget: (value, meta) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(value.toInt().toString()),
-          ),
+          interval: 1,
+          getTitlesWidget: (value, meta) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(value.toInt().toString()),
+            );
+          },
         ),
       ),
       bottomTitles: AxisTitles(
@@ -117,6 +120,7 @@ class GraphPage extends StatelessWidget {
         sideTitles: SideTitles(
           showTitles: true,
           reservedSize: 40,
+          interval: 1, // Adjust the interval between titles on the bottom axis
           getTitlesWidget: (value, meta) {
             final index = value.toInt();
             if (index >= 0 && index < groupedOrders.length) {

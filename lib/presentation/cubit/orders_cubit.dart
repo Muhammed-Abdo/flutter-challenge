@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_challenge/domain/model/models.dart';
@@ -19,7 +17,7 @@ class OrdersCubit extends Cubit<OrdersState> {
 
     try {
       // ignore: void_checks
-      final orders = await _getOrdersUsecase.execute(Void);
+      final orders = await _getOrdersUsecase.execute(null);
 
       emit(state.copyWith(orders: orders));
       emit(state.copyWith(status: OrdersStatus.loaded));
